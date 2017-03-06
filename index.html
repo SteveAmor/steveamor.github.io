@@ -1,0 +1,34 @@
+<html>
+ <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ </head>
+ <body>
+  <div id="main">
+  </div>
+  <script>
+$.getJSON("https://steveamor.github.io/jaminfo.json", function(data) {
+  console.log(data.length);
+//  $("div").append(data.length+" Jams logged<br />");
+  var pastEventCount = 0;
+  for (i=0; i<data.length; i++) {
+    if (data[i].in_past === true) {
+      pastEventCount ++;
+    }
+  }
+  $("div").append(pastEventCount+" Jams have already taken place<br />");
+  $("div").append("There are "+(data.length-pastEventCount)+" Jams coming up<br />");
+  $("div").append("The next Jam is the ");
+  // document.getElementById("main").innerHTML = data[0].title;
+  for (i=0; i<data.length; i++) {
+    if (data[i].in_past === false) {
+      $("div").append(data[i].title+" on "+data[i].start_date+"<br />");
+      break;
+    }
+  }
+})
+.fail(function() { 
+  alert('getJSON request failed! '); 
+});
+  </script>
+ </body>
+</html>
