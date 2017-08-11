@@ -26,7 +26,7 @@ $.getJSON("https://steveamor.github.io/jaminfo.json", function(data) {
     }
   }
   if (data[999].in_past === false) {
-    $("div").append("<br />The 1000th Jam could be the "+data[999].title+" on "+data[999].start_date);
+    $("div").append("<br />The 1000th Jam <em>could</em> be the "+data[999].title+" on "+data[999].start_date);
   } else {
     $("div").append("The 999th Jam was the "+data[998].title+" on "+data[998].start_date+"<br />");
     $("div").append("The 1000th Jam was the "+data[999].title+" on "+data[999].start_date+"<br />");
