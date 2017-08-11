@@ -25,6 +25,13 @@ $.getJSON("https://steveamor.github.io/jaminfo.json", function(data) {
       break;
     }
   }
+  if (jamData[999].in_past === false) {
+    $("div").append("<br />The 1000th Jam could be "+jamData[999].title+" on "+jamData[999].start_date);
+  } else {
+    $("div").append("The 999th Jam was "+jamData[998].title+" on "+jamData[998].start_date+"<br />");
+    $("div").append("The 1000th Jam was "+jamData[999].title+" on "+jamData[999].start_date+"<br />");
+    $("div").append("The 1001th Jam was "+jamData[1000].title+" on "+jamData[1000].start_date+"<br />");
+  }
 })
 .fail(function() { 
   alert('getJSON request failed! '); 
